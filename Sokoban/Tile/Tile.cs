@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sokoban.Tile
 {
-    class Tile
+    abstract class Tile
     {
     }
 }

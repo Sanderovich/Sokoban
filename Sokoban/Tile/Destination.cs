@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sokoban.Tile
 {
-    class Destination
+    class Destination:Tile
     {
     }
 }
