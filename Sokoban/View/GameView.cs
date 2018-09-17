@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sokoban.View
 {
-    class GameView
+    class GameView:View
     {
     }
 }
