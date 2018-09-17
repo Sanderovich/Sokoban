@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Chest\Chest.cs" />
     <Compile Include="Chest\ChestModule.cs" />
+    <Compile Include="Maze.cs" />
     <Compile Include="Tile\Destination.cs" />
     <Compile Include="Tile\Tile.cs" />
     <Compile Include="Player\Player.cs" />
@@ -52,7 +53,6 @@
     <Compile Include="View\GameView.cs" />
     <Compile Include="Sokoban.cs" />
     <Compile Include="SokobanParser.cs" />
-    <Compile Include="Field.cs" />
     <Compile Include="Tile\Normal.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
