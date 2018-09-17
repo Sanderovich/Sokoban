@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sokoban.Chest
+namespace Sokoban.Crate
 {
-    class Chest
+    class Crate
     {
     }
 }
