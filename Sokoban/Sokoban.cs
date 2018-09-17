@@ -13,7 +13,25 @@ namespace Sokoban
         {
             new StartView().PrintStart();
 
-            Console.ReadLine();
+            String input = Console.ReadLine();
+            int output = 0;
+            Boolean finished = false;
+            while (!finished)
+            {
+                if (!int.TryParse(input, out output))
+                {
+                    System.Console.WriteLine("?");
+                    System.Console.WriteLine("> Choose a maze (1 - 4), s = stop");
+                    input = Console.ReadLine();
+                    continue;
+                }
+
+                finished = true;
+            }
+
+
+            Console.WriteLine($"START{ output }");
+            Console.ReadKey();
         }
     }
 }
