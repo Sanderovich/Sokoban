@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 
 namespace Sokoban
 {
-    class Program
+    class Sokoban
     {
-        static void Main(string[] args)
-        {
-            Sokoban sokoban = new Sokoban();
 
-            sokoban.Start();
+
+
+
+        public void Start()
+        {
+            throw new NotImplementedException();
         }
     }
 }

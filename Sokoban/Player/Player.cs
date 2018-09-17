@@ -6,13 +6,10 @@ using System.Threading.Tasks;
 
 namespace Sokoban
 {
-    class Program
+    class Player
     {
-        static void Main(string[] args)
-        {
-            Sokoban sokoban = new Sokoban();
 
-            sokoban.Start();
-        }
+
+
     }
 }
