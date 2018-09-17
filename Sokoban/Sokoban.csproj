@@ -43,8 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Chest\Chest.cs" />
-    <Compile Include="Chest\ChestModule.cs" />
+    <Compile Include="Crate\Crate.cs" />
+    <Compile Include="Crate\CrateModule.cs" />
     <Compile Include="Maze.cs" />
     <Compile Include="Tile\Destination.cs" />
     <Compile Include="Tile\Tile.cs" />

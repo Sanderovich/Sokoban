@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sokoban.View;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,13 +9,11 @@ namespace Sokoban
 {
     class Sokoban
     {
-
-
-
-
         public void Start()
         {
-            throw new NotImplementedException();
+            new StartView().PrintStart();
+
+            Console.ReadLine();
         }
     }
 }
