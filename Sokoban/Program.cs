@@ -10,9 +10,7 @@ namespace Sokoban
     {
         static void Main(string[] args)
         {
-            Sokoban sokoban = new Sokoban();
-
-            sokoban.Start();
+            new Sokoban().Start();
         }
     }
 }
