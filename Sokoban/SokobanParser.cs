@@ -11,6 +11,7 @@ namespace Sokoban.Field
         public void Parse(int idMaze)
         {
             String[] lines = System.IO.File.ReadAllLines($@"./Mazes/maze_{idMaze}.txt");
+
         } 
         
     }
