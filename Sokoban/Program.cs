@@ -6,6 +6,14 @@ using System.Threading.Tasks;
 
 namespace Sokoban
 {
+
+    enum Direction
+    {
+        NORTH,
+        EAST,
+        SOUTH,
+        WEST
+    }
     class Program
     {
         static void Main(string[] args)

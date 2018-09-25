@@ -17,7 +17,6 @@ namespace Sokoban
 
         public List<Crate> Crates { get; } = new List<Crate>();
 
-
         public void PrintField()
         {   
             Tile current = First;

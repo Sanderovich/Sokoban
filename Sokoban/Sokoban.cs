@@ -39,12 +39,17 @@ namespace Sokoban
 
             this._maze.PrintField();
 
-            Console.ReadKey();
+            while (!IsFinished())
+            {
+                ConsoleKeyInfo key = Console.ReadKey();
+
+
+            }
         }
 
         public bool IsFinished()
         {
-            return 
+            return this._maze.IsFinished();
         }
     }
 }

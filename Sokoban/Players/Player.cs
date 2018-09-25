@@ -17,5 +17,18 @@ namespace Sokoban.Players
             Place = place;
         }
 
+        public void Move(Direction direction)
+        {
+            if (direction.Equals(Direction.NORTH)) {
+                Place = Place.North;
+            } else if (direction.Equals(Direction.EAST)) {
+                Place = Place.East;
+            } else if (direction.Equals(Direction.SOUTH)) {
+                Place = Place.South;
+            } else if (direction.Equals(Direction.WEST)) {
+                Place = Place.West;
+            }
+        }
+
     }
 }
