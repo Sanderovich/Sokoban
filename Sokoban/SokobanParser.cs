@@ -12,7 +12,8 @@ using System.Reflection;
 namespace Sokoban
 {
     class SokobanParser
-    {   
+    {
+        public String MazesPath { get; } = @"Mazes\maze_{0}.txt";
         public Maze Parse(int idMaze)
         {
             String[] lines;
@@ -21,9 +22,10 @@ namespace Sokoban
             {
                 string path = Path.Combine(Path
                     .GetDirectoryName(Assembly
-                    .GetExecutingAssembly().Location), $@"Mazes\maze_{ idMaze}.txt");
+                    .GetExecutingAssembly().Location), String.Format(MazesPath, idMaze));
                 lines = File.ReadAllLines(path);
-            } catch (Exception)
+            }
+            catch (Exception)
             {
                 return null;
             }
@@ -41,7 +43,7 @@ namespace Sokoban
             Maze maze = new Maze();
             Tile[,] tiles = new Tile[lines.Length, length];
 
-            int x , y;
+            int x, y;
             x = y = 0;
 
             foreach (String line in lines)
@@ -52,7 +54,7 @@ namespace Sokoban
                 {
 
                     Tile tile = null;
-                    switch(character)
+                    switch (character)
                     {
                         case 'x':
                             tile = new Destination();
@@ -84,10 +86,10 @@ namespace Sokoban
 
                 x++;
             }
-            
-            for(int i = 0; i < tiles.GetLength(0); i++)
+
+            for (int i = 0; i < tiles.GetLength(0); i++)
             {
-                for(int j = 0; j < tiles.GetLength(1); j++)
+                for (int j = 0; j < tiles.GetLength(1); j++)
                 {
                     Tile tile = tiles[i, j];
 
