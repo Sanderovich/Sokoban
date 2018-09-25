@@ -9,6 +9,7 @@ namespace Sokoban
 {
     class Sokoban
     {
+        private Maze _maze;
         public void Start()
         {
             new StartView().PrintStart();
@@ -34,11 +35,16 @@ namespace Sokoban
 
             SokobanParser parser = new SokobanParser();
 
-            Maze maze = parser.Parse(output);
+            this._maze = parser.Parse(output);
 
-            maze.PrintField();
+            this._maze.PrintField();
 
             Console.ReadKey();
+        }
+
+        public bool IsFinished()
+        {
+            return 
         }
     }
 }
