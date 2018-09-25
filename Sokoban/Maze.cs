@@ -11,6 +11,8 @@ namespace Sokoban
 {
     class Maze
     {
+        public int MazeNumber { get; set; }
+
         public Tile First { get; set; }
 
         public Player Player { get; set; }

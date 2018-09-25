@@ -35,12 +35,13 @@ namespace Sokoban
                 return null;
             }
 
-            return InitMaze(lines, getLongestLine(lines));
+            return InitMaze(idMaze, lines, getLongestLine(lines));
         }
 
-        private Maze InitMaze(string[] lines, int length)
+        private Maze InitMaze(int idMaze, string[] lines, int length)
         {
             Maze maze = new Maze();
+            maze.MazeNumber = idMaze;
             Tile[,] tiles = new Tile[lines.Length, length];
 
             int x = 0;

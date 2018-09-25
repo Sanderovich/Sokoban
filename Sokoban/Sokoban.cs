@@ -46,6 +46,7 @@ namespace Sokoban
             {
                 if (input == "s")
                 {
+                    Environment.Exit(0);
                     return;
                 }
 
@@ -95,6 +96,19 @@ namespace Sokoban
         private void CheckMovement()
         {
             ConsoleKeyInfo key = Console.ReadKey();
+
+            if (key.Key == ConsoleKey.R)
+            {
+                this.Maze = this._parser.Parse(this.Maze.MazeNumber);
+                Play();
+                return;
+            }
+
+            if (key.Key == ConsoleKey.S)
+            {
+                Start();
+                return;
+            }
 
             if (key.Key == ConsoleKey.RightArrow)
             {
