@@ -95,6 +95,8 @@ namespace Sokoban
                 {
                     Tile tile = tiles[i, j];
 
+                    if (tile == null) continue;
+
                     tile.North = getTile(tiles, i - 1, j);
                     tile.East = getTile(tiles, i, j + 1);
                     tile.South = getTile(tiles, i + 1, j);

@@ -37,7 +37,6 @@ namespace Sokoban
                     }
                 }
 
-
                 if (this.Player.Place == current) Console.Write("@");
                 else if (_crate != null && _crateOnPlace) Console.Write("0");
                 else if (_crate != null) Console.Write("o");
