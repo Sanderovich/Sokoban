@@ -12,13 +12,10 @@ namespace Sokoban
     class Sokoban
     {
         public Maze Maze { get; set; }
-        
-        public PlayerModule PlayerModule { get; set; }
         public CrateModule CrateModule { get; set; }
 
         public Sokoban ()
         {
-            PlayerModule = new PlayerModule(this);
             CrateModule = new CrateModule(this);
         }
 
@@ -51,7 +48,17 @@ namespace Sokoban
 
             Maze.PrintField();
 
-            Console.ReadKey();
+            while (!IsFinished())
+            {
+                ConsoleKeyInfo key = Console.ReadKey();
+
+
+            }
+        }
+
+        public bool IsFinished()
+        {
+            return this.Maze.IsFinished();
         }
     }
 }
