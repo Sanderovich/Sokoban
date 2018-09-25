@@ -20,7 +20,7 @@ namespace Sokoban
 
         public PlayerModule PlayerModule { get; set; }
         public CrateModule CrateModule { get; set; }
-        private SokobanParser _parser;
+        private readonly SokobanParser _parser;
 
         public Sokoban()
         {
@@ -37,23 +37,24 @@ namespace Sokoban
         {
             _startView.Print(Maze);
 
-            String input = Console.ReadLine();
+            ConsoleKeyInfo input = Console.ReadKey();
             int output = 0;
 
             Boolean finished = false;
 
             while (!finished)
             {
-                if (input == "s")
+                if (input.Key == ConsoleKey.S)
                 {
                     Environment.Exit(0);
                     return;
                 }
 
-                if (!int.TryParse(input, out output))
+
+                if (!int.TryParse(input.KeyChar + "", out output))
                 {
                     _startView.PrintError();
-                    input = Console.ReadLine();
+                    input = Console.ReadKey();
                     continue;
                 }
 
@@ -61,7 +62,7 @@ namespace Sokoban
                 if (this.Maze == null)
                 {
                     _startView.PrintError();
-                    input = Console.ReadLine();
+                    input = Console.ReadKey();
                     continue;
                 }
 
