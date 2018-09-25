@@ -12,9 +12,10 @@ namespace Sokoban
     class Sokoban
     {
         public Maze Maze { get; set; }
+
         public CrateModule CrateModule { get; set; }
 
-        public Sokoban ()
+        public Sokoban()
         {
             CrateModule = new CrateModule(this);
         }

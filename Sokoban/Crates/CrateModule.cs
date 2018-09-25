@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Sokoban.Tiles;
 
 namespace Sokoban.Crates
 {
@@ -15,9 +16,24 @@ namespace Sokoban.Crates
             this._sokoban = sokoban;
         }
 
-        public void Move(Crate crate)
+        public bool Move(Crate crate, Direction direction)
         {
+            if (crate.Tile is Wall)
+            {
+                return false;
+            }
 
+            foreach (Crate c in _sokoban.Maze.Crates)
+            {
+                if (c.Tile.Equals(crate.Tile.getTileInDirection(direction)))
+                {
+                    return false;
+                }
+            }
+
+            crate.Move(direction);
+
+            return true;
         }
     }
 }

@@ -15,5 +15,24 @@ namespace Sokoban.Crates
         {
             this.Tile = tile;
         }
+        public void Move(Direction direction)
+        {
+            if (direction.Equals(Direction.NORTH))
+            {
+                Tile = Tile.North;
+            }
+            else if (direction.Equals(Direction.EAST))
+            {
+                Tile = Tile.East;
+            }
+            else if (direction.Equals(Direction.SOUTH))
+            {
+                Tile = Tile.South;
+            }
+            else if (direction.Equals(Direction.WEST))
+            {
+                Tile = Place.West;
+            }
+        }
     }
 }
