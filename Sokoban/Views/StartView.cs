@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sokoban.View
+namespace Sokoban.Views
 {
     class StartView:View
     {
@@ -20,7 +20,7 @@ namespace Sokoban.View
             System.Console.WriteLine("|        █ : wall                  |  to the destination place |");
             System.Console.WriteLine("|        · : floor                 |  with the truck           |");
             System.Console.WriteLine("|        O : Crate                 |                           |");
-            System.Console.WriteLine("|        0 : krat op bestemming    |                           |");
+            System.Console.WriteLine("|        0 : Crate on destination  |                           |");
             System.Console.WriteLine("|        x : destination           |                           |");
             System.Console.WriteLine("|        @ : truck                 |                           |");
             System.Console.WriteLine("└──────────────────────────────────────────────────────────────┘");

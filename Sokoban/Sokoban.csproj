@@ -43,28 +43,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Crate\Crate.cs" />
-    <Compile Include="Crate\CrateModule.cs" />
+    <Compile Include="Crates\Crate.cs" />
+    <Compile Include="Crates\CrateModule.cs" />
     <Compile Include="Maze.cs" />
-    <Compile Include="Tile\Destination.cs" />
-    <Compile Include="Tile\Tile.cs" />
-    <Compile Include="Player\Player.cs" />
-    <Compile Include="Player\PlayerModule.cs" />
-    <Compile Include="View\GameView.cs" />
+    <Compile Include="Tiles\Destination.cs" />
+    <Compile Include="Tiles\Tile.cs" />
+    <Compile Include="Players\Player.cs" />
+    <Compile Include="Players\PlayerModule.cs" />
+    <Compile Include="Views\GameView.cs" />
     <Compile Include="Sokoban.cs" />
     <Compile Include="SokobanParser.cs" />
-    <Compile Include="Tile\Normal.cs" />
+    <Compile Include="Tiles\Normal.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tile\Wall.cs" />
-    <Compile Include="View\StartView.cs" />
-    <Compile Include="View\View.cs" />
+    <Compile Include="Tiles\Wall.cs" />
+    <Compile Include="Views\StartView.cs" />
+    <Compile Include="Views\View.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Mazes\maze_1.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

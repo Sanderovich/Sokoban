@@ -4,12 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sokoban.Player
+namespace Sokoban.Players
 {
-    class Player
+    class PlayerModule
     {
-
-
-
     }
 }

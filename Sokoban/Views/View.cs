@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sokoban.Player
+namespace Sokoban.Views
 {
-    class PlayerModule
+    abstract class View
     {
     }
 }

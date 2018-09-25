@@ -1,4 +1,4 @@
-﻿using Sokoban.View;
+﻿using Sokoban.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,6 +31,13 @@ namespace Sokoban
 
 
             Console.WriteLine($"START{ output }");
+
+            SokobanParser parser = new SokobanParser();
+
+            Maze maze = parser.Parse(output);
+
+            maze.PrintField();
+
             Console.ReadKey();
         }
     }

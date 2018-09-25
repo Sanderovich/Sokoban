@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sokoban.View
+namespace Sokoban.Crates
 {
-    abstract class View
+    class CrateModule
     {
     }
 }

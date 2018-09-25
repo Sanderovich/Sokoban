@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sokoban.View
+namespace Sokoban.Tiles
 {
-    class GameView:View
+    class Normal:Tile
     {
+        public Normal()
+        {
+            this.Character = '.';
+        }
     }
 }

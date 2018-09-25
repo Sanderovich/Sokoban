@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sokoban.Tile
+namespace Sokoban.Views
 {
-    class Normal:Tile
+    class GameView:View
     {
     }
 }
