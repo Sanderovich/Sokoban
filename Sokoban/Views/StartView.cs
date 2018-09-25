@@ -8,8 +8,9 @@ namespace Sokoban.Views
 {
     class StartView:View
     {
-        public override void Print(Maze _maze)
+        public override void Print(Maze maze)
         {
+            Console.Clear();
             System.Console.WriteLine("┌──────────────────────────────────────────────────────────────┐");
             System.Console.WriteLine("| Welcome at Sokoban                                           |");
             System.Console.WriteLine("|                                                              |");
@@ -24,6 +25,12 @@ namespace Sokoban.Views
             System.Console.WriteLine("|        @ : Truck                 |                           |");
             System.Console.WriteLine("└──────────────────────────────────────────────────────────────┘");
             System.Console.WriteLine(" ");
+            System.Console.WriteLine("> Choose a maze (1 - 4), s = stop");
+        }
+
+        public void PrintError()
+        {
+            System.Console.WriteLine("?");
             System.Console.WriteLine("> Choose a maze (1 - 4), s = stop");
         }
     }

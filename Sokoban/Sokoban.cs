@@ -1,4 +1,5 @@
 ﻿using Sokoban.Crates;
+using Sokoban.Players;
 using Sokoban.Tiles;
 using Sokoban.Views;
 using System;
@@ -12,30 +13,53 @@ namespace Sokoban
     class Sokoban
     {
         public Maze Maze { get; set; }
-        private View _view;
 
-        //public PlayerModule PlayerModule { get; set; }
+        private StartView _startView;
+        private GameView _gameView;
+        private EndView _endView;
+
+        public PlayerModule PlayerModule { get; set; }
         public CrateModule CrateModule { get; set; }
+        private SokobanParser _parser;
+
         public Sokoban()
         {
-            //PlayerModule = new PlayerModule(this);
+            PlayerModule = new PlayerModule(this);
             CrateModule = new CrateModule(this);
+            _parser = new SokobanParser();
+
+            _startView = new StartView();
+            _gameView = new GameView();
+            _endView = new EndView();
         }
 
         public void Start()
         {
-            _view = new StartView();
-            _view.Print(Maze);
+            _startView.Print(Maze);
 
             String input = Console.ReadLine();
             int output = 0;
+
             Boolean finished = false;
+
             while (!finished)
             {
+                if (input == "s")
+                {
+                    return;
+                }
+
                 if (!int.TryParse(input, out output))
                 {
-                    System.Console.WriteLine("?");
-                    System.Console.WriteLine("> Choose a maze (1 - 4), s = stop");
+                    _startView.PrintError();
+                    input = Console.ReadLine();
+                    continue;
+                }
+
+                this.Maze = this._parser.Parse(output);
+                if (this.Maze == null)
+                {
+                    _startView.PrintError();
                     input = Console.ReadLine();
                     continue;
                 }
@@ -43,27 +67,32 @@ namespace Sokoban
                 finished = true;
             }
 
-            SokobanParser parser = new SokobanParser();
+            Play();
+        }
 
-            this.Maze = parser.Parse(output);
-
-            this._view = new GameView();
-            this._view.Print(Maze);
+        private void Play() {
+            this._gameView.Print(Maze);
 
             while (!IsFinished())
             {
-                checkMovement();
+                CheckMovement();
 
-                this._view.Print(Maze);
+                this._gameView.Print(Maze);
             }
 
-            _view = new EndView();
-            _view.Print(Maze);
-
-            Console.ReadKey();
+            Finish();
         }
 
-        private void checkMovement()
+        private void Finish()
+        {
+            this._endView.Print(Maze);
+
+            Console.ReadKey();
+
+            Start();
+        }
+
+        private void CheckMovement()
         {
             ConsoleKeyInfo key = Console.ReadKey();
 

@@ -8,11 +8,11 @@ namespace Sokoban.Views
 {
     class EndView : View
     {
-        public override void Print(Maze _maze)
+        public override void Print(Maze maze)
         {
             Console.Clear();
-            Console.WriteLine("FINISHED");
-            Console.WriteLine("Press any key to quit");
+            Console.WriteLine("=== HURRAY! YOU COMPLETED LEVEL ===");
+            Console.WriteLine("> Press any key to continue");
         }
     }
 }

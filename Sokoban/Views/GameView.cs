@@ -8,10 +8,16 @@ namespace Sokoban.Views
 {
     class GameView : View
     {
-        public override void Print(Maze _maze)
+        public override void Print(Maze maze)
         {
             Console.Clear();
-            _maze.PrintField();
+            Console.WriteLine("┌──────────┐");
+            Console.WriteLine("| Sokoban  |");
+            Console.WriteLine("└──────────┘");
+            Console.WriteLine("─────────────────────────────────────────────────────────────────────────");
+            maze.PrintField();
+            Console.WriteLine("─────────────────────────────────────────────────────────────────────────");
+            Console.WriteLine("> gebruik pijljestoetsen (s = stop, r = reset)");
         }
     }
 }
