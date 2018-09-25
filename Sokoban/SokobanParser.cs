@@ -21,7 +21,7 @@ namespace Sokoban
             {
                 string path = Path.Combine(Path
                     .GetDirectoryName(Assembly
-                    .GetExecutingAssembly().Location), $@"maze_{ idMaze}.txt");
+                    .GetExecutingAssembly().Location), $@"Mazes\maze_{ idMaze}.txt");
                 lines = File.ReadAllLines(path);
             } catch (Exception)
             {
