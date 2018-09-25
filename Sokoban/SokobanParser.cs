@@ -89,7 +89,7 @@ namespace Sokoban
             {
                 for(int j = 0; j < tiles.GetLength(1); j++)
                 {
-                    Tile tile = tiles[i, j]
+                    Tile tile = tiles[i, j];
 
                     tile.North = getTile(tiles, i - 1, j);
                     tile.East = getTile(tiles, i, j + 1);

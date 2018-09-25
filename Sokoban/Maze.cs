@@ -19,39 +19,23 @@ namespace Sokoban
 
 
         public void PrintField()
-        {
-            int dir = 1;
+        {   
             Tile current = First;
-
-            String line = "";
+            Tile firstTileLine = current;
 
             while(current != null)
-            { 
-                //current.Print();
+            {
+                current.Print();
 
-                if (dir == 1 && current.East == null)
+                if (current.East == null)
                 {
-                    current = current.South;
-                    dir = -1;
-                    Console.WriteLine(line);
-                    if (current != null) line = current.Character + "";
+                    Console.WriteLine("");
+                    current = firstTileLine.South;
+                    firstTileLine = current;
                 }
-                else if (dir == 1)
+                else
                 {
                     current = current.East;
-                    line += current.Character;
-                }
-                else if (dir == -1 && current.West == null)
-                {
-                    current = current.South;
-                    dir = 1;
-                    Console.WriteLine(line);
-                    if (current != null) line = current.Character + "";
-                }
-                else if (dir == -1)
-                {
-                    current = current.West;
-                    line = current.Character + line;
                 }
             }
         }
