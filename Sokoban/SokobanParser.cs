@@ -75,6 +75,8 @@ namespace Sokoban
                             break;
                         case '0':
                             tile = new Destination();
+
+                            maze.Crates.Add(new Crate(tile));
                             break;
                     }
 

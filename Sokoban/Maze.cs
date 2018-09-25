@@ -25,7 +25,24 @@ namespace Sokoban
 
             while(current != null)
             {
-                current.Print();
+                Crate _crate = null;
+                bool _crateOnPlace = false;
+                foreach (Crate crate in Crates)
+                {
+                    if (crate.Tile == current)
+                    {
+                        if (current is Destination) _crateOnPlace = true;
+
+                        _crate = crate;
+                        break;
+                    }
+                }
+
+
+                if (this.Player.Place == current) Console.Write("@");
+                else if (_crate != null && _crateOnPlace) Console.Write("0");
+                else if (_crate != null) Console.Write("o");
+                else current.Print();
 
                 if (current.East == null)
                 {
