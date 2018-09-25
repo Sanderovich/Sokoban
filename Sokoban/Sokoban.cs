@@ -1,4 +1,6 @@
-﻿using Sokoban.Views;
+﻿using Sokoban.Crates;
+using Sokoban.Players;
+using Sokoban.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +11,17 @@ namespace Sokoban
 {
     class Sokoban
     {
-        private Maze _maze;
+        public Maze Maze { get; set; }
+        
+        public PlayerModule PlayerModule { get; set; }
+        public CrateModule CrateModule { get; set; }
+
+        public Sokoban ()
+        {
+            PlayerModule = new PlayerModule(this);
+            CrateModule = new CrateModule(this);
+        }
+
         public void Start()
         {
             new StartView().PrintStart();
@@ -35,16 +47,11 @@ namespace Sokoban
 
             SokobanParser parser = new SokobanParser();
 
-            this._maze = parser.Parse(output);
+            Maze = parser.Parse(output);
 
-            this._maze.PrintField();
+            Maze.PrintField();
 
             Console.ReadKey();
-        }
-
-        public bool IsFinished()
-        {
-            return 
         }
     }
 }

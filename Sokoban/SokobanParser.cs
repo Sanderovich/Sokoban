@@ -43,8 +43,8 @@ namespace Sokoban
             Maze maze = new Maze();
             Tile[,] tiles = new Tile[lines.Length, length];
 
-            int x, y;
-            x = y = 0;
+            int x = 0;
+            int y = 0;
 
             foreach (String line in lines)
             {
