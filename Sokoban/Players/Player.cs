@@ -20,12 +20,20 @@ namespace Sokoban.Players
         public void Move(Direction direction)
         {
             if (direction.Equals(Direction.NORTH)) {
+                if (Place.North is Wall) return;
+
                 Place = Place.North;
             } else if (direction.Equals(Direction.EAST)) {
+                if (Place.East is Wall) return;
+
                 Place = Place.East;
             } else if (direction.Equals(Direction.SOUTH)) {
+                if (Place.South is Wall) return;
+
                 Place = Place.South;
             } else if (direction.Equals(Direction.WEST)) {
+                if (Place.West is Wall) return;
+
                 Place = Place.West;
             }
         }

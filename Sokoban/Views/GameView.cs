@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Sokoban.Views
 {
-    class GameView:View
+    class GameView : View
     {
+        public override void Print(Maze _maze)
+        {
+            Console.Clear();
+            _maze.PrintField();
+        }
     }
 }

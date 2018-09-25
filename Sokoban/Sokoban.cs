@@ -10,9 +10,11 @@ namespace Sokoban
     class Sokoban
     {
         private Maze _maze;
+        private View _view;
         public void Start()
         {
-            new StartView().PrintStart();
+            _view = new StartView();
+            _view.Print(_maze);
 
             String input = Console.ReadLine();
             int output = 0;
@@ -30,20 +32,40 @@ namespace Sokoban
                 finished = true;
             }
 
-
-            Console.WriteLine($"START{ output }");
-
             SokobanParser parser = new SokobanParser();
 
             this._maze = parser.Parse(output);
 
-            this._maze.PrintField();
+            this._view = new GameView();
+            this._view.Print(_maze);
 
             while (!IsFinished())
             {
-                ConsoleKeyInfo key = Console.ReadKey();
+                checkMovement();
 
+                this._view.Print(_maze);
+            }
+        }
 
+        private void checkMovement()
+        {
+            ConsoleKeyInfo key = Console.ReadKey();
+
+            if (key.Key == ConsoleKey.RightArrow)
+            {
+                _maze.Player.Move(Direction.EAST);
+            }
+            else if (key.Key == ConsoleKey.LeftArrow)
+            {
+                _maze.Player.Move(Direction.WEST);
+            }
+            else if (key.Key == ConsoleKey.DownArrow)
+            {
+                _maze.Player.Move(Direction.SOUTH);
+            }
+            else if (key.Key == ConsoleKey.UpArrow)
+            {
+                _maze.Player.Move(Direction.NORTH);
             }
         }
 
