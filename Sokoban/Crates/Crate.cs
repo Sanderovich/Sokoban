@@ -31,7 +31,7 @@ namespace Sokoban.Crates
             }
             else if (direction.Equals(Direction.WEST))
             {
-                Tile = Place.West;
+                Tile = Tile.West;
             }
         }
     }

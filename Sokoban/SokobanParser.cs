@@ -72,7 +72,7 @@ namespace Sokoban
 
                             maze.Player = new Player(tile);
                             break;
-                        case '█':
+                        case '#':
                             tile = new Wall();
                             break;
                         case '0':

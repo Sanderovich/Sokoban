@@ -18,7 +18,8 @@ namespace Sokoban.Crates
 
         public bool Move(Crate crate, Direction direction)
         {
-            if (crate.Tile is Wall)
+            Tile next = crate.Tile.getTileInDirection(direction);
+            if (next is Wall)
             {
                 return false;
             }

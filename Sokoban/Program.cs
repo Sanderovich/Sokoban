@@ -14,6 +14,7 @@ namespace Sokoban
         SOUTH,
         WEST
     }
+
     class Program
     {
         static void Main(string[] args)

@@ -49,6 +49,7 @@
     <Compile Include="Tiles\Destination.cs" />
     <Compile Include="Tiles\Tile.cs" />
     <Compile Include="Players\Player.cs" />
+    <Compile Include="Views\EndView.cs" />
     <Compile Include="Views\GameView.cs" />
     <Compile Include="Sokoban.cs" />
     <Compile Include="SokobanParser.cs" />
