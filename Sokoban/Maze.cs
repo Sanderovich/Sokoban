@@ -56,5 +56,20 @@ namespace Sokoban
                 }
             }
         }
+
+        public bool IsFinished()
+        {
+            int finishedCount = 0;
+
+            foreach (Crate crate in Crates)
+            {
+                if (crate.Tile is Destination)
+                {
+                    finishedCount++;
+                }
+            }
+
+            return finishedCount == Crates.Count;
+        }
     }
 }
