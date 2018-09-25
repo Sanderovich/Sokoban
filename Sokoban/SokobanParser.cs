@@ -19,7 +19,10 @@ namespace Sokoban
 
             try
             {
-                lines = File.ReadAllLines($@"C:\Users\yolob\Documents\Doolhof\maze_{idMaze}.txt");
+                string path = Path.Combine(Path
+                    .GetDirectoryName(Assembly
+                    .GetExecutingAssembly().Location), $@"maze_{ idMaze}.txt");
+                lines = File.ReadAllLines(path);
             } catch (Exception)
             {
                 return null;
@@ -86,7 +89,7 @@ namespace Sokoban
             {
                 for(int j = 0; j < tiles.GetLength(1); j++)
                 {
-                    Tile tile = tiles[i, j];
+                    Tile tile = tiles[i, j]
 
                     tile.North = getTile(tiles, i - 1, j);
                     tile.East = getTile(tiles, i, j + 1);
@@ -110,7 +113,8 @@ namespace Sokoban
             try
             {
                 tile = tiles[x, y];
-            } catch (Exception)
+            }
+            catch (Exception)
             {
                 return null;
             }
