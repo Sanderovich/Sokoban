@@ -24,8 +24,8 @@ namespace Sokoban
 
         public Sokoban()
         {
-            PlayerModule = new PlayerModule(this);
             CrateModule = new CrateModule(this);
+            PlayerModule = new PlayerModule(this);
             _parser = new SokobanParser();
 
             _startView = new StartView();
@@ -38,7 +38,7 @@ namespace Sokoban
             _startView.Print(Maze);
 
             ConsoleKeyInfo input = Console.ReadKey();
-            int output = 0;
+            int output;
 
             Boolean finished = false;
 
@@ -77,7 +77,7 @@ namespace Sokoban
 
             while (!IsFinished())
             {
-                CheckMovement();
+                CheckInput();
 
                 this._gameView.Print(Maze);
             }
@@ -91,10 +91,12 @@ namespace Sokoban
 
             Console.ReadKey();
 
+            this.Maze = null;
+
             Start();
         }
 
-        private void CheckMovement()
+        private void CheckInput()
         {
             ConsoleKeyInfo key = Console.ReadKey();
 
@@ -113,63 +115,19 @@ namespace Sokoban
 
             if (key.Key == ConsoleKey.RightArrow)
             {
-                Tile tile = Maze.Player.Place.East;
-
-                bool canMove = true;
-                foreach (Crate crate in Maze.Crates)
-                {
-                    if (tile.Equals(crate.Tile))
-                    {
-                        canMove = CrateModule.Move(crate, Direction.EAST);
-                    }
-                }
-
-                if (canMove) Maze.Player.Move(Direction.EAST);
+                PlayerModule.Move(Direction.EAST);
             }
             else if (key.Key == ConsoleKey.LeftArrow)
             {
-                Tile tile = Maze.Player.Place.West;
-
-                bool canMove = true;
-                foreach (Crate crate in Maze.Crates)
-                {
-                    if (tile.Equals(crate.Tile))
-                    {
-                        canMove = CrateModule.Move(crate, Direction.WEST);
-                    }
-                }
-
-                if (canMove) Maze.Player.Move(Direction.WEST);
+                PlayerModule.Move(Direction.WEST);
             }
             else if (key.Key == ConsoleKey.DownArrow)
             {
-                Tile tile = Maze.Player.Place.South;
-
-                bool canMove = true;
-                foreach (Crate crate in Maze.Crates)
-                {
-                    if (tile.Equals(crate.Tile))
-                    {
-                        canMove = CrateModule.Move(crate, Direction.SOUTH);
-                    }
-                }
-
-                if (canMove) Maze.Player.Move(Direction.SOUTH);
+                PlayerModule.Move(Direction.SOUTH);
             }
             else if (key.Key == ConsoleKey.UpArrow)
             {
-                Tile tile = Maze.Player.Place.North;
-
-                bool canMove = true;
-                foreach (Crate crate in Maze.Crates)
-                {
-                    if (tile.Equals(crate.Tile))
-                    {
-                        canMove = CrateModule.Move(crate, Direction.NORTH);
-                    }
-                }
-
-                if (canMove) Maze.Player.Move(Direction.NORTH);
+                PlayerModule.Move(Direction.NORTH);
             }
         }
 

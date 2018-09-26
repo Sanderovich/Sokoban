@@ -26,23 +26,24 @@ namespace Sokoban
 
             while(current != null)
             {
-                Crate _crate = null;
-                bool _crateOnPlace = false;
-                foreach (Crate crate in Crates)
+                Crate crate = GetCrateOnTile(current);
+
+                if (this.Player.Tile == current)
                 {
-                    if (crate.Tile == current)
-                    {
-                        if (current is Destination) _crateOnPlace = true;
-
-                        _crate = crate;
-                        break;
-                    }
+                    Player.Print();
                 }
-
-                if (this.Player.Place == current) Console.Write("@");
-                else if (_crate != null && _crateOnPlace) Console.Write("0");
-                else if (_crate != null) Console.Write("o");
-                else current.Print();
+                else if (crate != null && crate.OnDestination)
+                {
+                    crate.PrintOnPlace();
+                }
+                else if (crate != null)
+                {
+                    crate.Print();
+                }
+                else
+                {
+                    current.Print();
+                }
 
                 if (current.East == null)
                 {
@@ -57,13 +58,25 @@ namespace Sokoban
             }
         }
 
+        public Crate GetCrateOnTile(Tile tile)
+        {
+            foreach(Crate crate in Crates)
+            {
+                if (crate.Tile.Equals(tile))
+                {
+                    return crate;
+                }
+            }
+            return null;
+        }
+
         public bool IsFinished()
         {
             int finishedCount = 0;
 
             foreach (Crate crate in Crates)
             {
-                if (crate.Tile is Destination)
+                if (crate.OnDestination)
                 {
                     finishedCount++;
                 }

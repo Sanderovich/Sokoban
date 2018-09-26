@@ -9,33 +9,26 @@ namespace Sokoban.Players
 {
     class Player
     {
+        public char Character { get; } = '@';
+        public Tile Tile { get; set; }
 
-        public Tile Place { get; set; }
-
-        public Player (Tile place)
+        public Player (Tile tile)
         {
-            Place = place;
+            this.Tile = tile;
         }
 
         public void Move(Direction direction)
         {
-            if (direction.Equals(Direction.NORTH)) {
-                if (Place.North is Wall) return;
+            Tile temp = Tile.getTileInDirection(direction);
 
-                Place = Place.North;
-            } else if (direction.Equals(Direction.EAST)) {
-                if (Place.East is Wall) return;
+            if (temp is Wall) return;
 
-                Place = Place.East;
-            } else if (direction.Equals(Direction.SOUTH)) {
-                if (Place.South is Wall) return;
+            Tile = temp;
+        }
 
-                Place = Place.South;
-            } else if (direction.Equals(Direction.WEST)) {
-                if (Place.West is Wall) return;
-
-                Place = Place.West;
-            }
+        public void Print()
+        {
+            Console.Write(Character);
         }
 
     }

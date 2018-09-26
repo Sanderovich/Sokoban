@@ -9,6 +9,9 @@ namespace Sokoban.Crates
 {
     class Crate
     {
+        public char Character { get; } = 'O';
+        public char CharacterOnDestination{ get; } = '0';
+        public bool OnDestination { get; set; } = false;
         public Tile Tile { get; set; }
 
         public Crate(Tile tile)
@@ -17,22 +20,26 @@ namespace Sokoban.Crates
         }
         public void Move(Direction direction)
         {
-            if (direction.Equals(Direction.NORTH))
+            Tile = Tile.getTileInDirection(direction);
+
+            if (Tile is Destination)
             {
-                Tile = Tile.North;
-            }
-            else if (direction.Equals(Direction.EAST))
+                OnDestination = true;
+            } 
+            else
             {
-                Tile = Tile.East;
+                OnDestination = false;
             }
-            else if (direction.Equals(Direction.SOUTH))
-            {
-                Tile = Tile.South;
-            }
-            else if (direction.Equals(Direction.WEST))
-            {
-                Tile = Tile.West;
-            }
+        }
+
+        public void Print()
+        {
+            Console.Write(Character);
+        }
+
+        public void PrintOnPlace()
+        {
+            Console.Write(CharacterOnDestination);
         }
     }
 }
