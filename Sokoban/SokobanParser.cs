@@ -81,6 +81,9 @@ namespace Sokoban
 
                             maze.Crates.Add(new Crate(tile));
                             break;
+                        case ' ':
+                            tile = new Empty();
+                            break;
                     }
 
                     tiles[x, y] = tile;
