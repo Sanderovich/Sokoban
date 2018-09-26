@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sokoban.Player
+namespace Sokoban.Tiles
 {
-    class PlayerModule
+    class Wall:Tile
     {
+        public Wall()
+        {
+            this.Character = '█';
+        }
     }
 }

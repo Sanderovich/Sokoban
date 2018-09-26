@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sokoban.Crate
+namespace Sokoban.Tiles
 {
-    class Crate
+    class Destination:Tile
     {
+        public Destination()
+        {
+            this.Character = 'x';
+        }
     }
 }

@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sokoban.Tile
+namespace Sokoban.Tiles
 {
-    class Normal:Tile
+    class Empty:Tile
     {
+        public Empty()
+        {
+            this.Character = ' ';
+        }
     }
 }
