@@ -19,6 +19,8 @@ namespace Sokoban
 
         public List<Crate> Crates { get; } = new List<Crate>();
 
+        public int DestinationsAmount { get; set; }
+
         public void PrintField()
         {   
             Tile current = First;
@@ -77,6 +79,11 @@ namespace Sokoban
 
         public bool IsFinished()
         {
+            if (DestinationsAmount > Crates.Count)
+            {
+                return false;
+            }
+
             int finishedCount = 0;
 
             foreach (Crate crate in Crates)

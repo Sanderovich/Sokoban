@@ -59,6 +59,7 @@ namespace Sokoban
                     {
                         case 'x':
                             tile = new Destination();
+                            maze.DestinationsAmount++;
                             break;
                         case '.':
                             tile = new Normal();

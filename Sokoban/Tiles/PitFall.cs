@@ -8,18 +8,18 @@ namespace Sokoban.Tiles
 {
     class PitFall:Tile
     {
+        private int hits;
         public int Hits
         {
             get
             {
-                return Hits;
+                return this.hits;
             }
 
             set
             {
-                Hits = value;
-
-                if (Hits == 3)
+                this.hits += value;
+                if (this.hits == 3)
                 {
                     Character = ' ';
                     IsBroken = true;
@@ -35,7 +35,7 @@ namespace Sokoban.Tiles
 
         public void IncreaseHits()
         {
-            Hits += 2;
+            this.Hits = 1;
         }
     }
 }
