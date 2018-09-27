@@ -49,6 +49,7 @@
     <Compile Include="Players\PlayerModule.cs" />
     <Compile Include="Tiles\Destination.cs" />
     <Compile Include="Tiles\Empty.cs" />
+    <Compile Include="Tiles\PitFall.cs" />
     <Compile Include="Tiles\Tile.cs" />
     <Compile Include="Players\Player.cs" />
     <Compile Include="Views\EndView.cs" />

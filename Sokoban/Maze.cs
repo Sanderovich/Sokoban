@@ -70,6 +70,11 @@ namespace Sokoban
             return null;
         }
 
+        public void DestroyCrate(Crate crate)
+        {
+            Crates.Remove(crate);
+        }
+
         public bool IsFinished()
         {
             int finishedCount = 0;

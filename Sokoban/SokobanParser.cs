@@ -84,6 +84,9 @@ namespace Sokoban
                         case ' ':
                             tile = new Empty();
                             break;
+                        case '~':
+                            tile = new PitFall();
+                            break;
                     }
 
                     tiles[x, y] = tile;

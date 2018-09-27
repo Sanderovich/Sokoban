@@ -24,6 +24,20 @@ namespace Sokoban.Crates
                 return false;
             }
 
+            if (next is PitFall)
+            {
+                PitFall pitFall = (PitFall)next;
+                
+                if (pitFall.IsBroken)
+                {
+                    _sokoban.Maze.DestroyCrate(crate);
+                }
+                else
+                {
+                    pitFall.IncreaseHits();
+                }
+            }
+
             foreach (Crate c in _sokoban.Maze.Crates)
             {
                 if (c.Tile.Equals(crate.Tile.getTileInDirection(direction)))

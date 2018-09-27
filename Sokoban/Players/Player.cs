@@ -23,6 +23,12 @@ namespace Sokoban.Players
 
             if (temp is Wall) return;
 
+            if (temp is PitFall)
+            {
+                PitFall pitFall = (PitFall)temp;
+                pitFall.IncreaseHits();
+            }
+
             Tile = temp;
         }
 
