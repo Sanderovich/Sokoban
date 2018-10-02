@@ -67,10 +67,16 @@ namespace Sokoban
                         case 'o':
                             tile = new Normal();
 
-                            maze.Crates.Add(new Crate(tile));
+                            Crate crate = new Crate(tile);
+                            tile.Entity = crate;
+
+                            maze.Crates.Add(crate);
                             break;
                         case '@':
                             tile = new Normal();
+
+                            Player player = new Player(tile);
+                            tile.Entity = player;
 
                             maze.Player = new Player(tile);
                             break;
@@ -80,7 +86,10 @@ namespace Sokoban
                         case '0':
                             tile = new Destination();
 
-                            maze.Crates.Add(new Crate(tile));
+                            crate = new Crate(tile);
+                            tile.Entity = crate;
+
+                            maze.Crates.Add(crate);
                             break;
                         case ' ':
                             tile = new Empty();

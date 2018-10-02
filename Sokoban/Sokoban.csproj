@@ -44,9 +44,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Crates\Crate.cs" />
-    <Compile Include="Crates\CrateModule.cs" />
+    <Compile Include="Entity\IEntity.cs" />
+    <Compile Include="Entity\IMoveable.cs" />
+    <Compile Include="Entity\IPushable.cs" />
     <Compile Include="Maze.cs" />
-    <Compile Include="Players\PlayerModule.cs" />
     <Compile Include="Tiles\Destination.cs" />
     <Compile Include="Tiles\Empty.cs" />
     <Compile Include="Tiles\PitFall.cs" />

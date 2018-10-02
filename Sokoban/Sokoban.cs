@@ -17,15 +17,11 @@ namespace Sokoban
         private StartView _startView;
         private GameView _gameView;
         private EndView _endView;
-
-        public PlayerModule PlayerModule { get; set; }
-        public CrateModule CrateModule { get; set; }
+        
         private readonly SokobanParser _parser;
 
         public Sokoban()
         {
-            CrateModule = new CrateModule(this);
-            PlayerModule = new PlayerModule(this);
             _parser = new SokobanParser();
 
             _startView = new StartView();
@@ -115,19 +111,19 @@ namespace Sokoban
 
             if (key.Key == ConsoleKey.RightArrow)
             {
-                PlayerModule.Move(Direction.EAST);
+                Maze.Player.Move(Direction.EAST);
             }
             else if (key.Key == ConsoleKey.LeftArrow)
             {
-                PlayerModule.Move(Direction.WEST);
+                Maze.Player.Move(Direction.WEST);
             }
             else if (key.Key == ConsoleKey.DownArrow)
             {
-                PlayerModule.Move(Direction.SOUTH);
+                Maze.Player.Move(Direction.SOUTH);
             }
             else if (key.Key == ConsoleKey.UpArrow)
             {
-                PlayerModule.Move(Direction.NORTH);
+                Maze.Player.Move(Direction.NORTH);
             }
         }
 

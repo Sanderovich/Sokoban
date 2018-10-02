@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Sokoban.Entity;
+using Sokoban.Players;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,27 +15,70 @@ namespace Sokoban.Tiles
         public Tile South { get; set; }
         public Tile West { get; set; }
         public char Character { get; set; }
-        public Tile getTileInDirection(Direction direction)
+        public IEntity Entity { get; set; }
+
+        public Tile PushContent(Direction direction)
         {
-            if (direction.Equals(Direction.NORTH))
+            Tile tile = getTileInDirection(direction);
+
+            if (!tile.IsMoveableTile()) return null;
+
+            if (!tile.IsOccupied())
             {
-                return North;
-            }
-            else if (direction.Equals(Direction.EAST))
-            {
-                return East;
-            }
-            else if (direction.Equals(Direction.SOUTH))
-            {
-                return South;
-            }
-            else if (direction.Equals(Direction.WEST))
-            {
-                return West;
+                tile.Entity = Entity;
+                Entity = null;
+                return tile;
             }
 
+            if (tile.IsEntityPushable())
+            {
+                IPushable entity = (IPushable)tile.Entity;
+
+                if (IsEntityPushable()) return null;
+                if (tile.PushContent(direction) == null) return null;
+
+                entity.Update(tile.getTileInDirection(direction));
+
+                tile.Entity = Entity;
+                Entity = null;
+                return tile;
+            }
+            
             return null;
         }
+
+        private bool IsMoveableTile()
+        {
+            return !(this is Wall);
+        }
+
+        private bool IsEntityPushable()
+        {
+            return Entity is IPushable;
+        }
+
+        private bool IsOccupied()
+        {
+            return Entity != null;
+        }
+                                    
+        private Tile getTileInDirection(Direction direction)
+        {
+            switch(direction)
+            {
+                case Direction.NORTH:
+                    return North;
+                case Direction.EAST:
+                    return East;
+                case Direction.SOUTH:
+                    return South;
+                case Direction.WEST:
+                    return West;
+                default:
+                    return null;
+            }
+        }
+
         public void Print()
         {
             Console.Write(Character);

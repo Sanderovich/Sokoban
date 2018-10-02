@@ -28,19 +28,9 @@ namespace Sokoban
 
             while(current != null)
             {
-                Crate crate = GetCrateOnTile(current);
-
-                if (this.Player.Tile == current)
+                if (current.Entity != null)
                 {
-                    Player.Print();
-                }
-                else if (crate != null && crate.OnDestination)
-                {
-                    crate.PrintOnPlace();
-                }
-                else if (crate != null)
-                {
-                    crate.Print();
+                    current.Entity.Print();
                 }
                 else
                 {
@@ -58,18 +48,6 @@ namespace Sokoban
                     current = current.East;
                 }
             }
-        }
-
-        public Crate GetCrateOnTile(Tile tile)
-        {
-            foreach(Crate crate in Crates)
-            {
-                if (crate.Tile.Equals(tile))
-                {
-                    return crate;
-                }
-            }
-            return null;
         }
 
         public void DestroyCrate(Crate crate)

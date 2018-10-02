@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Sokoban.Entity;
 using Sokoban.Tiles;
 
 namespace Sokoban.Crates
 {
-    class Crate
+    class Crate : IPushable
     {
         public char Character { get; } = 'O';
         public char CharacterOnDestination{ get; } = '0';
@@ -18,28 +19,29 @@ namespace Sokoban.Crates
         {
             this.Tile = tile;
         }
-        public void Move(Direction direction)
-        {
-            Tile = Tile.getTileInDirection(direction);
-
-            if (Tile is Destination)
-            {
-                OnDestination = true;
-            } 
-            else
-            {
-                OnDestination = false;
-            }
-        }
 
         public void Print()
         {
+            if (OnDestination)
+            {
+                Console.Write(CharacterOnDestination);
+                return;
+            }
+
             Console.Write(Character);
         }
 
-        public void PrintOnPlace()
+        public void Update(Tile tile)
         {
-            Console.Write(CharacterOnDestination);
+            Tile = tile;
+
+            if (tile is Destination)
+            {
+                OnDestination = true;
+            } else
+            {
+                OnDestination = false;
+            }
         }
     }
 }

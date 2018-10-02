@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Sokoban.Entity;
 using Sokoban.Tiles;
 
 namespace Sokoban.Players
 {
-    class Player
+    class Player : IMoveable
     {
         public char Character { get; } = '@';
         public Tile Tile { get; set; }
@@ -19,17 +20,9 @@ namespace Sokoban.Players
 
         public void Move(Direction direction)
         {
-            Tile temp = Tile.getTileInDirection(direction);
+            Tile tile = Tile.PushContent(direction);
 
-            if (temp is Wall) return;
-
-            if (temp is PitFall)
-            {
-                PitFall pitFall = (PitFall)temp;
-                pitFall.IncreaseHits();
-            }
-
-            Tile = temp;
+            if (tile != null) Tile = tile;
         }
 
         public void Print()
