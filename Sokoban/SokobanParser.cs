@@ -133,14 +133,12 @@ namespace Sokoban
         {
             Tile tile;
 
-            try
-            {
-                tile = tiles[x, y];
-            }
-            catch (Exception)
+            if (x >= tiles.GetLength(0)|| x < 0 || y >= tiles.GetLength(1) || y < 0)
             {
                 return null;
             }
+
+            tile = tiles[x, y];
 
             return tile;
         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sokoban.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,18 +9,18 @@ namespace Sokoban.Tiles
 {
     class PitFall:Tile
     {
-        private int hits;
+        private int _hits;
         public int Hits
         {
             get
             {
-                return this.hits;
+                return this._hits;
             }
 
             set
-            {
-                this.hits += value;
-                if (this.hits == 3)
+            {   
+                this._hits += value;
+                if (this._hits == 3)
                 {
                     Character = ' ';
                     IsBroken = true;
@@ -36,6 +37,16 @@ namespace Sokoban.Tiles
         public void IncreaseHits()
         {
             this.Hits = 1;
+        }
+
+        public override void Update()
+        {
+            IncreaseHits();
+
+            if (IsBroken && Entity is IPushable)
+            {
+                Entity = null;
+            }
         }
     }
 }

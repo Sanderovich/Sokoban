@@ -15,7 +15,23 @@ namespace Sokoban.Tiles
         public Tile South { get; set; }
         public Tile West { get; set; }
         public char Character { get; set; }
-        public IEntity Entity { get; set; }
+        private IEntity _entity;
+        public IEntity Entity
+        {
+            get
+            {
+                return this._entity;
+            }
+
+            set
+            {
+                this._entity = value;
+                if (value != null)
+                {
+                    Update();
+                }
+            }
+        }
 
         public Tile PushContent(Direction direction)
         {
@@ -83,5 +99,7 @@ namespace Sokoban.Tiles
         {
             Console.Write(Character);
         }
+
+        public abstract void Update();
     }
 }
