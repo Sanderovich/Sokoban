@@ -45,6 +45,7 @@ namespace Sokoban.Tiles
 
             if (IsBroken && Entity is IPushable)
             {
+                Entity.Tile = null;
                 Entity = null;
             }
         }

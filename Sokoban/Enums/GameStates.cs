@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Sokoban.Enums;
 
-namespace Sokoban.Entity
+namespace Sokoban.Enums
 {
-    interface IMoveable : IEntity
+    public enum GameStates
     {
-        void Move(Directions direction);
+        Menu,
+        Playing,
+        Losed,
+        Finished
     }
 }

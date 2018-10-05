@@ -8,7 +8,7 @@ namespace Sokoban.Views
 {
     abstract class View
     {
-        public abstract void Print(Maze maze);
+        public abstract ConsoleKeyInfo Print(Maze maze);
 
     }
 }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Sokoban.Entity;
 using Sokoban.Tiles;
+using Sokoban.Enums;
 
 namespace Sokoban.Players
 {
@@ -18,7 +19,7 @@ namespace Sokoban.Players
             this.Tile = tile;
         }
 
-        public void Move(Direction direction)
+        public void Move(Directions direction)
         {
             Tile tile = Tile.PushContent(direction);
 
@@ -29,6 +30,5 @@ namespace Sokoban.Players
         {
             Console.Write(Character);
         }
-
     }
 }

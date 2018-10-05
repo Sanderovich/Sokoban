@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Sokoban.Views
 {
-    class EndView : View
+    class LosedView:View
     {
-        public override void Print(Maze maze)
+        public override ConsoleKeyInfo Print(Maze maze)
         {
             Console.Clear();
             Console.WriteLine("┌──────────┐");
@@ -17,8 +17,10 @@ namespace Sokoban.Views
             Console.WriteLine("─────────────────────────────────────────────────────────────────────────");
             maze.PrintField();
             Console.WriteLine("─────────────────────────────────────────────────────────────────────────");
-            Console.WriteLine("=== HURRAY! YOU COMPLETED LEVEL ===");
+            Console.WriteLine("=== YOU LOSED! All the crates have fallen through the pitfalls ===");
             Console.WriteLine("> Press any key to continue");
+
+            return Console.ReadKey();
         }
     }
 }

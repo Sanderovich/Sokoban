@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sokoban.Views
 {
-    class GameView : View
+    class FinishedView : View
     {
         public override ConsoleKeyInfo Print(Maze maze)
         {
@@ -17,7 +17,8 @@ namespace Sokoban.Views
             Console.WriteLine("─────────────────────────────────────────────────────────────────────────");
             maze.PrintField();
             Console.WriteLine("─────────────────────────────────────────────────────────────────────────");
-            Console.WriteLine("> gebruik pijljestoetsen (s = stop, r = reset)");
+            Console.WriteLine("=== HURRAY! YOU COMPLETED LEVEL ===");
+            Console.WriteLine("> Press any key to continue");
 
             return Console.ReadKey();
         }

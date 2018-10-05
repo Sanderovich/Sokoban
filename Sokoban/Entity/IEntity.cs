@@ -9,8 +9,7 @@ namespace Sokoban.Entity
 {
     interface IEntity
     {
-
+        Tile Tile { get; set; }
         void Print();
-
     }
 }
