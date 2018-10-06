@@ -8,7 +8,7 @@ namespace Sokoban.Views
 {
     class StartView:View
     {
-        public override void Print(Maze maze)
+        public override ConsoleKeyInfo Print(Maze maze)
         {
             Console.Clear();
             System.Console.WriteLine("┌──────────────────────────────────────────────────────────────┐");
@@ -26,12 +26,16 @@ namespace Sokoban.Views
             System.Console.WriteLine("└──────────────────────────────────────────────────────────────┘");
             System.Console.WriteLine(" ");
             System.Console.WriteLine("> Choose a maze (1 - 6), s = stop");
+
+            return Console.ReadKey();
         }
 
-        public void PrintError()
+        public ConsoleKeyInfo PrintError()
         {
             System.Console.WriteLine("?");
             System.Console.WriteLine("> Choose a maze (1 - 6), s = stop");
+
+            return Console.ReadKey();
         }
     }
 }

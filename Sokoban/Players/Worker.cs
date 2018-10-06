@@ -1,4 +1,5 @@
 ﻿using Sokoban.Entity;
+using Sokoban.Enums;
 using Sokoban.Tiles;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Sokoban.Players
 {
-    class Worker : IMoveable
+    class Worker : INotPushable
     {
         
         public char Character { get; } = '$';
@@ -24,7 +25,7 @@ namespace Sokoban.Players
             Tile = tile;
         }
 
-        public bool Move(Direction direction)
+        public bool Move(Directions direction)
         {
             int percentage = Random.Next(0, 101);
 
@@ -34,21 +35,21 @@ namespace Sokoban.Players
             if (!Sleeping)
             {
                 int intDirection = Random.Next(1, 5);
-                Direction finalDirection = Direction.NORTH;
+                Directions finalDirection = Directions.NORTH;
 
                 switch (intDirection)
                 {
                     case 1:
-                        finalDirection = Direction.NORTH;
+                        finalDirection = Directions.NORTH;
                         break;
                     case 2:
-                        finalDirection = Direction.EAST;
+                        finalDirection = Directions.EAST;
                         break;
                     case 3:
-                        finalDirection = Direction.SOUTH;
+                        finalDirection = Directions.SOUTH;
                         break;
                     case 4:
-                        finalDirection = Direction.WEST;
+                        finalDirection = Directions.WEST;
                         break;
                     default:
                         break;
@@ -70,6 +71,11 @@ namespace Sokoban.Players
         {
             if (Sleeping) Console.Write(SleepingCharacter);
             else Console.Write(Character);
+        }
+
+        public void Update()
+        {
+            if (Sleeping) Sleeping = !Sleeping;
         }
     }
 }

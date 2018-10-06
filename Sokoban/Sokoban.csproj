@@ -46,6 +46,7 @@
     <Compile Include="Crates\Crate.cs" />
     <Compile Include="Entity\IEntity.cs" />
     <Compile Include="Entity\IMoveable.cs" />
+    <Compile Include="Entity\INotPushable.cs" />
     <Compile Include="Entity\IPushable.cs" />
     <Compile Include="Enums\Directions.cs" />
     <Compile Include="Enums\GameStates.cs" />

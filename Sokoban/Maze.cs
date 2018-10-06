@@ -66,7 +66,7 @@ namespace Sokoban
             return finishedCount == Crates.Count;
         }
 
-        public bool HasLosed()
+        public bool HasLost()
         {
             if (DestinationsAmount > Crates.Count)
             {

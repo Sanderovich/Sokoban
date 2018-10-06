@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Sokoban.Enums;
 
 namespace Sokoban.Entity
 {
-    interface IMoveable : IEntity
+    interface INotPushable : IMoveable
     {
-
-        bool Move(Directions direction);
+        void Update();
     }
 }

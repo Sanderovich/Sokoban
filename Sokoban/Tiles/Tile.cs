@@ -46,8 +46,15 @@ namespace Sokoban.Tiles
                 Entity = null;
                 return tile;
             }
-             
-            if (tile.IsEntityPushable())
+
+            if (tile.IsEntityNotPushable())
+            {
+                INotPushable entity = (INotPushable) tile.Entity;
+
+                entity.Update();
+                return null;
+            }
+            else if (tile.IsEntityPushable())
             {
                 IPushable entity = (IPushable) tile.Entity;
 
@@ -67,6 +74,11 @@ namespace Sokoban.Tiles
         private bool IsMoveableTile()
         {
             return !(this is Wall);
+        }
+
+        private bool IsEntityNotPushable()
+        {
+            return Entity is INotPushable;
         }
 
         private bool IsEntityPushable()

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Sokoban.Entity;
+using Sokoban.Enums;
 using Sokoban.Tiles;
 
 namespace Sokoban.Players
@@ -18,7 +19,7 @@ namespace Sokoban.Players
             this.Tile = tile;
         }
 
-        public bool Move(Direction direction)
+        public bool Move(Directions direction)
         {
             Tile tile = Tile.PushContent(direction);
 

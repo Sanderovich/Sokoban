@@ -1,4 +1,5 @@
 ﻿using Sokoban.Crates;
+using Sokoban.Enums;
 using Sokoban.Players;
 using Sokoban.Tiles;
 using Sokoban.Views;
@@ -14,10 +15,13 @@ namespace Sokoban
     {
         public Maze Maze { get; set; }
 
+        public GameStates State { get; set; }
+
         private StartView _startView;
         private GameView _gameView;
-        private EndView _endView;
-        
+        private FinishedView _finishedView;
+        private LosedView _losedView;
+
         private readonly SokobanParser _parser;
 
         public Sokoban()
@@ -26,18 +30,20 @@ namespace Sokoban
 
             _startView = new StartView();
             _gameView = new GameView();
-            _endView = new EndView();
+            _finishedView = new FinishedView();
+            _losedView = new LosedView();
+
+            State = GameStates.Menu;
         }
 
         public void Start()
         {
-            _startView.Print(Maze);
+            State = GameStates.Menu;
 
-            ConsoleKeyInfo input = Console.ReadKey();
+            ConsoleKeyInfo input = _startView.Print(Maze);
             int output;
 
             Boolean finished = false;
-
             while (!finished)
             {
                 if (input.Key == ConsoleKey.S)
@@ -46,11 +52,9 @@ namespace Sokoban
                     return;
                 }
 
-
                 if (!int.TryParse(input.KeyChar + "", out output))
                 {
-                    _startView.PrintError();
-                    input = Console.ReadKey();
+                    input = _startView.PrintError();
                     continue;
                 }
 
@@ -68,80 +72,67 @@ namespace Sokoban
             Play();
         }
 
-        private void Play() {
-            this._gameView.Print(Maze);
+        private void Play()
+        {
+            State = GameStates.Playing;
 
-            while (!IsFinished())
+            while (State == GameStates.Playing)
             {
-                CheckInput();
-
-                this._gameView.Print(Maze);
+                {
+                    CheckInput(this._gameView.Print(Maze));
+                    IsFinished();
+                }
             }
 
-            Finish();
+            End();
         }
 
-        private void Finish()
+        private void End()
         {
-            this._endView.Print(Maze);
-
-            Console.ReadKey();
+            if (State == GameStates.Finished)
+            {
+                Console.ReadKey(); _finishedView.Print(Maze);
+            }
+            else if (State == GameStates.Losed)
+            {
+                _losedView.Print(Maze);
+            }
 
             this.Maze = null;
 
             Start();
         }
 
-        private void CheckInput()
+        private void CheckInput(ConsoleKeyInfo key)
         {
-            ConsoleKeyInfo key = Console.ReadKey();
-
-            if (key.Key == ConsoleKey.R)
+            switch (key.Key)
             {
-                this.Maze = this._parser.Parse(this.Maze.MazeNumber);
-                Play();
-                return;
-            }
-
-            if (key.Key == ConsoleKey.S)
-            {
-                Start();
-                return;
-            }
-
-            if (key.Key == ConsoleKey.RightArrow)
-            {
-                if (Maze.Player.Move(Direction.EAST))
-                {
-                    if (Maze.Worker != null) Maze.Worker.Move(Direction.EAST);
-                }
-            }
-            else if (key.Key == ConsoleKey.LeftArrow)
-            {
-                if (Maze.Player.Move(Direction.WEST))
-                {
-                    if (Maze.Worker != null) Maze.Worker.Move(Direction.WEST);
-                }
-            }
-            else if (key.Key == ConsoleKey.DownArrow)
-            { 
-                if (Maze.Player.Move(Direction.SOUTH))
-                {
-                    if (Maze.Worker != null) Maze.Worker.Move(Direction.SOUTH);
-                }
-            }
-            else if (key.Key == ConsoleKey.UpArrow)
-            {
-                if (Maze.Player.Move(Direction.NORTH))
-                {
-                    if (Maze.Worker != null) Maze.Worker.Move(Direction.NORTH);
-                }
+                case ConsoleKey.R:
+                    this.Maze = this._parser.Parse(this.Maze.MazeNumber);
+                    Play();
+                    break;
+                case ConsoleKey.S:
+                    Start();
+                    break;
+                case ConsoleKey.RightArrow:
+                    if (Maze.Player.Move(Directions.EAST)) if (Maze.Worker != null) Maze.Worker.Move(Directions.EAST);
+                    break;
+                case ConsoleKey.LeftArrow:
+                    if (Maze.Player.Move(Directions.WEST)) if (Maze.Worker != null) Maze.Worker.Move(Directions.WEST);
+                    break;
+                case ConsoleKey.DownArrow:
+                    if (Maze.Player.Move(Directions.SOUTH)) if (Maze.Worker != null) Maze.Worker.Move(Directions.SOUTH);
+                    break;
+                case ConsoleKey.UpArrow:
+                    if (Maze.Player.Move(Directions.NORTH)) if (Maze.Worker != null) Maze.Worker.Move(Directions.NORTH);
+                    break;
             }
         }
 
-        public bool IsFinished()
+        public void IsFinished()
         {
-            return this.Maze.IsFinished();
+            if (Maze.HasLost()) State = GameStates.Losed;
+            if (Maze.IsFinished()) State = GameStates.Finished;
         }
     }
 }
