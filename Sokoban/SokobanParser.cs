@@ -14,7 +14,7 @@ namespace Sokoban
     class SokobanParser
     {
         public String MazesPath { get; } = @"Mazes\maze_{0}.txt";
-        public Maze Parse(int idMaze)
+        public Maze Parse(Sokoban sokoban, int idMaze)
         {
             String[] lines;
 
@@ -35,10 +35,10 @@ namespace Sokoban
                 return null;
             }
 
-            return InitMaze(idMaze, lines, getLongestLine(lines));
+            return InitMaze(idMaze, lines, getLongestLine(lines), sokoban);
         }
 
-        private Maze InitMaze(int idMaze, string[] lines, int length)
+        private Maze InitMaze(int idMaze, string[] lines, int length, Sokoban sokoban)
         {
             Maze maze = new Maze();
             maze.MazeNumber = idMaze;
@@ -103,7 +103,7 @@ namespace Sokoban
                             tile = new Empty();
                             break;
                         case '~':
-                            tile = new PitFall();
+                            tile = new PitFall(sokoban);
                             break;
                     }
 

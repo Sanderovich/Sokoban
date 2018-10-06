@@ -58,7 +58,7 @@ namespace Sokoban
                     continue;
                 }
 
-                this.Maze = this._parser.Parse(output);
+                this.Maze = this._parser.Parse(this, output);
                 if (this.Maze == null)
                 {
                     _startView.PrintError();
@@ -93,7 +93,7 @@ namespace Sokoban
             {
                 Console.ReadKey(); _finishedView.Print(Maze);
             }
-            else if (State == GameStates.Losed)
+            else if (State == GameStates.Lost)
             {
                 _losedView.Print(Maze);
             }
@@ -108,7 +108,7 @@ namespace Sokoban
             switch (key.Key)
             {
                 case ConsoleKey.R:
-                    this.Maze = this._parser.Parse(this.Maze.MazeNumber);
+                    this.Maze = this._parser.Parse(this, this.Maze.MazeNumber);
                     Play();
                     break;
                 case ConsoleKey.S:
@@ -139,7 +139,6 @@ namespace Sokoban
 
         public void IsFinished()
         {
-            if (Maze.HasLost()) State = GameStates.Losed;
             if (Maze.IsFinished()) State = GameStates.Finished;
         }
     }

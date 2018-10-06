@@ -10,7 +10,7 @@ namespace Sokoban.Enums
     {
         Menu,
         Playing,
-        Losed,
+        Lost,
         Finished
     }
 }

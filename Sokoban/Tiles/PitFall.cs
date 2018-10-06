@@ -1,4 +1,6 @@
-﻿using Sokoban.Entity;
+﻿using Sokoban.Crates;
+using Sokoban.Entity;
+using Sokoban.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,9 +32,13 @@ namespace Sokoban.Tiles
 
         public bool IsBroken { get; set; }
 
-        public PitFall()
+        private Sokoban Sokoban { get; set; }
+
+        public PitFall(Sokoban sokoban)
         {
             Character = '~';
+
+            Sokoban = sokoban;
         }
   
         public void IncreaseHits()
@@ -48,6 +54,8 @@ namespace Sokoban.Tiles
             {
                 Entity.Tile = null;
                 Entity = null;
+
+                Sokoban.State = GameStates.Lost;
             }
         }
     }
