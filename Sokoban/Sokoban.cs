@@ -115,16 +115,24 @@ namespace Sokoban
                     Start();
                     break;
                 case ConsoleKey.RightArrow:
+                    Console.WriteLine("SOKOBANPLAYER" + Maze.Player.Tile.GetHashCode());
                     if (Maze.Player.Move(Directions.EAST)) if (Maze.Worker != null) Maze.Worker.Move(Directions.EAST);
+                    Console.WriteLine("SOKOBANPLAYER2" + Maze.Player.Tile.GetHashCode());
                     break;
                 case ConsoleKey.LeftArrow:
+                    Console.WriteLine("SOKOBANPLAYER" + Maze.Player.Tile.GetHashCode());
                     if (Maze.Player.Move(Directions.WEST)) if (Maze.Worker != null) Maze.Worker.Move(Directions.WEST);
+                    Console.WriteLine("SOKOBANPLAYER2" + Maze.Player.Tile.GetHashCode());
                     break;
                 case ConsoleKey.DownArrow:
+                    Console.WriteLine("SOKOBANPLAYER" + Maze.Player.Tile.GetHashCode());
                     if (Maze.Player.Move(Directions.SOUTH)) if (Maze.Worker != null) Maze.Worker.Move(Directions.SOUTH);
+                    Console.WriteLine("SOKOBANPLAYER2" + Maze.Player.Tile.GetHashCode());
                     break;
                 case ConsoleKey.UpArrow:
+                    Console.WriteLine("SOKOBANPLAYER" + Maze.Player.Tile.GetHashCode());
                     if (Maze.Player.Move(Directions.NORTH)) if (Maze.Worker != null) Maze.Worker.Move(Directions.NORTH);
+                    Console.WriteLine("SOKOBANPLAYER2" + Maze.Player.Tile.GetHashCode());
                     break;
             }
         }

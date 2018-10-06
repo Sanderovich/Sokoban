@@ -78,7 +78,7 @@ namespace Sokoban
                             Player player = new Player(tile);
                             tile.Entity = player;
 
-                            maze.Player = new Player(tile);
+                            maze.Player = player;
                             break;
                         case '#':
                             tile = new Wall();

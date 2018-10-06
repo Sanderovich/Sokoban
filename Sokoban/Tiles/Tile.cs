@@ -42,7 +42,6 @@ namespace Sokoban.Tiles
 
             if (!tile.IsOccupied())
             {
-                Console.WriteLine("TEST");
                 tile.Entity = Entity;
                 Entity = null;
                 return tile;
@@ -53,20 +52,19 @@ namespace Sokoban.Tiles
                 INotPushable entity = (INotPushable) tile.Entity;
 
                 entity.Update();
-                Console.WriteLine("test1");
                 return null;
             } 
             else if (tile.IsEntityAPlayer())
             {
                 Player player = (Player)tile.Entity;
-                Console.WriteLine("test4");
-                
-                if (!player.Move(direction)) return null;
+
+                Tile newTile = tile.PushContent(direction);
+                if (newTile == null) return null;
+
+                player.Tile = newTile;
 
                 tile.Entity = Entity;
                 Entity = null;
-                Console.WriteLine("AFTER1: " + tile.IsEntityAPlayer());
-                Console.WriteLine("test");
                 return tile;
             }
             else if (tile.IsEntityPushable())
@@ -80,7 +78,6 @@ namespace Sokoban.Tiles
 
                 tile.Entity = Entity;
                 Entity = null;
-                Console.WriteLine("test3");
                 return tile;
             }
             

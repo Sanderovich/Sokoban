@@ -10,7 +10,7 @@ namespace Sokoban.Views
     {
         public override ConsoleKeyInfo Print(Maze maze)
         {
-            //Console.Clear();
+            Console.Clear();
             Console.WriteLine("┌──────────┐");
             Console.WriteLine("| Sokoban  |");
             Console.WriteLine("└──────────┘");
