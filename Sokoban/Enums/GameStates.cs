@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sokoban.Views
+namespace Sokoban.Enums
 {
-    abstract class View
+    public enum GameStates
     {
-        public abstract ConsoleKeyInfo Print(Maze maze);
-
+        Menu,
+        Playing,
+        Losed,
+        Finished
     }
 }

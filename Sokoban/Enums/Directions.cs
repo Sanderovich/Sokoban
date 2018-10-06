@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sokoban.Views
+namespace Sokoban.Enums
 {
-    abstract class View
+    public enum Directions
     {
-        public abstract ConsoleKeyInfo Print(Maze maze);
-
+        NORTH,
+        EAST,
+        SOUTH,
+        WEST
     }
 }

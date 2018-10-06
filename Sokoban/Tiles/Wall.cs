@@ -12,5 +12,7 @@ namespace Sokoban.Tiles
         {
             this.Character = '█';
         }
+
+        public override void Update() { }
     }
 }

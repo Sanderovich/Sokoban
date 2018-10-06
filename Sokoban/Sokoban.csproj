@@ -47,6 +47,8 @@
     <Compile Include="Entity\IEntity.cs" />
     <Compile Include="Entity\IMoveable.cs" />
     <Compile Include="Entity\IPushable.cs" />
+    <Compile Include="Enums\Directions.cs" />
+    <Compile Include="Enums\GameStates.cs" />
     <Compile Include="Maze.cs" />
     <Compile Include="Players\Worker.cs" />
     <Compile Include="Tiles\Destination.cs" />
@@ -54,7 +56,7 @@
     <Compile Include="Tiles\PitFall.cs" />
     <Compile Include="Tiles\Tile.cs" />
     <Compile Include="Players\Player.cs" />
-    <Compile Include="Views\EndView.cs" />
+    <Compile Include="Views\FinishedView.cs" />
     <Compile Include="Views\GameView.cs" />
     <Compile Include="Sokoban.cs" />
     <Compile Include="SokobanParser.cs" />
@@ -62,6 +64,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tiles\Wall.cs" />
+    <Compile Include="Views\LosedView.cs" />
     <Compile Include="Views\StartView.cs" />
     <Compile Include="Views\View.cs" />
   </ItemGroup>

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Sokoban.Enums;
 
 namespace Sokoban.Tiles
 {
@@ -15,9 +16,25 @@ namespace Sokoban.Tiles
         public Tile South { get; set; }
         public Tile West { get; set; }
         public char Character { get; set; }
-        public IEntity Entity { get; set; }
+        private IEntity _entity;
+        public IEntity Entity
+        {
+            get
+            {
+                return this._entity;
+            }
 
-        public Tile PushContent(Direction direction)
+            set
+            {
+                this._entity = value;
+                if (value != null)
+                {
+                    Update();
+                }
+            }
+        }
+
+        public Tile PushContent(Directions direction)
         {
             Tile tile = getTileInDirection(direction);
 
@@ -62,17 +79,17 @@ namespace Sokoban.Tiles
             return Entity != null;
         }
                                     
-        private Tile getTileInDirection(Direction direction)
+        private Tile getTileInDirection(Directions direction)
         {
             switch(direction)
             {
-                case Direction.NORTH:
+                case Directions.NORTH:
                     return North;
-                case Direction.EAST:
+                case Directions.EAST:
                     return East;
-                case Direction.SOUTH:
+                case Directions.SOUTH:
                     return South;
-                case Direction.WEST:
+                case Directions.WEST:
                     return West;
                 default:
                     return null;
@@ -83,5 +100,7 @@ namespace Sokoban.Tiles
         {
             Console.Write(Character);
         }
+
+        public abstract void Update();
     }
 }

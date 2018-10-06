@@ -51,18 +51,8 @@ namespace Sokoban
             }
         }
 
-        public void DestroyCrate(Crate crate)
-        {
-            Crates.Remove(crate);
-        }
-
         public bool IsFinished()
         {
-            if (DestinationsAmount > Crates.Count)
-            {
-                return false;
-            }
-
             int finishedCount = 0;
 
             foreach (Crate crate in Crates)
@@ -74,6 +64,16 @@ namespace Sokoban
             }
 
             return finishedCount == Crates.Count;
+        }
+
+        public bool HasLosed()
+        {
+            if (DestinationsAmount > Crates.Count)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }
