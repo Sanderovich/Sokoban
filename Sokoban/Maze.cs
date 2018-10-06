@@ -16,6 +16,7 @@ namespace Sokoban
         public Tile First { get; set; }
 
         public Player Player { get; set; }
+        public Worker Worker { get; set; }
 
         public List<Crate> Crates { get; } = new List<Crate>();
 

@@ -9,6 +9,6 @@ namespace Sokoban.Entity
     interface IMoveable : IEntity
     {
 
-        void Move(Direction direction);
+        bool Move(Direction direction);
     }
 }

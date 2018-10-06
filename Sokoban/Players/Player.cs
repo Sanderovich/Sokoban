@@ -18,17 +18,23 @@ namespace Sokoban.Players
             this.Tile = tile;
         }
 
-        public void Move(Direction direction)
+        public bool Move(Direction direction)
         {
             Tile tile = Tile.PushContent(direction);
 
-            if (tile != null) Tile = tile;
+            if (tile != null)
+            {
+                Tile = tile;
+                return true;
+            }
+
+            return false;
         }
 
         public void Print()
         {
             Console.Write(Character);
         }
-
+       
     }
 }

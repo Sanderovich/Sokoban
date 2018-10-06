@@ -29,10 +29,10 @@ namespace Sokoban.Tiles
                 Entity = null;
                 return tile;
             }
-
+             
             if (tile.IsEntityPushable())
             {
-                IPushable entity = (IPushable)tile.Entity;
+                IPushable entity = (IPushable) tile.Entity;
 
                 if (IsEntityPushable()) return null;
                 if (tile.PushContent(direction) == null) return null;

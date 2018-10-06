@@ -111,19 +111,31 @@ namespace Sokoban
 
             if (key.Key == ConsoleKey.RightArrow)
             {
-                Maze.Player.Move(Direction.EAST);
+                if (Maze.Player.Move(Direction.EAST))
+                {
+                    if (Maze.Worker != null) Maze.Worker.Move(Direction.EAST);
+                }
             }
             else if (key.Key == ConsoleKey.LeftArrow)
             {
-                Maze.Player.Move(Direction.WEST);
+                if (Maze.Player.Move(Direction.WEST))
+                {
+                    if (Maze.Worker != null) Maze.Worker.Move(Direction.WEST);
+                }
             }
             else if (key.Key == ConsoleKey.DownArrow)
-            {
-                Maze.Player.Move(Direction.SOUTH);
+            { 
+                if (Maze.Player.Move(Direction.SOUTH))
+                {
+                    if (Maze.Worker != null) Maze.Worker.Move(Direction.SOUTH);
+                }
             }
             else if (key.Key == ConsoleKey.UpArrow)
             {
-                Maze.Player.Move(Direction.NORTH);
+                if (Maze.Player.Move(Direction.NORTH))
+                {
+                    if (Maze.Worker != null) Maze.Worker.Move(Direction.NORTH);
+                }
             }
         }
 

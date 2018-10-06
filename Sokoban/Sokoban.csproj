@@ -48,6 +48,7 @@
     <Compile Include="Entity\IMoveable.cs" />
     <Compile Include="Entity\IPushable.cs" />
     <Compile Include="Maze.cs" />
+    <Compile Include="Players\Worker.cs" />
     <Compile Include="Tiles\Destination.cs" />
     <Compile Include="Tiles\Empty.cs" />
     <Compile Include="Tiles\PitFall.cs" />
@@ -78,6 +79,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Mazes\maze_1.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Mazes\maze_5.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Mazes\maze_6.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

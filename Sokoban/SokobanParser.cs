@@ -91,6 +91,14 @@ namespace Sokoban
 
                             maze.Crates.Add(crate);
                             break;
+                        case '$':
+                            tile = new Normal();
+
+                            Worker worker = new Worker(tile);
+                            tile.Entity = worker;
+
+                            maze.Worker = worker;
+                            break;
                         case ' ':
                             tile = new Empty();
                             break;

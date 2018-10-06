@@ -25,13 +25,13 @@ namespace Sokoban.Views
             System.Console.WriteLine("|        @ : Truck                 |                           |");
             System.Console.WriteLine("└──────────────────────────────────────────────────────────────┘");
             System.Console.WriteLine(" ");
-            System.Console.WriteLine("> Choose a maze (1 - 4), s = stop");
+            System.Console.WriteLine("> Choose a maze (1 - 6), s = stop");
         }
 
         public void PrintError()
         {
             System.Console.WriteLine("?");
-            System.Console.WriteLine("> Choose a maze (1 - 4), s = stop");
+            System.Console.WriteLine("> Choose a maze (1 - 6), s = stop");
         }
     }
 }

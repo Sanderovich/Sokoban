@@ -28,11 +28,12 @@ namespace Sokoban.Tiles
         }
 
         public bool IsBroken { get; set; }
+
         public PitFall()
         {
             Character = '~';
         }
-
+  
         public void IncreaseHits()
         {
             this.Hits = 1;
