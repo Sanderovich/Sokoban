@@ -89,7 +89,7 @@ namespace Sokoban
         {
             if (State == GameStates.Finished)
             {
-                Console.ReadKey(); _finishedView.Print(Maze);
+                _finishedView.Print(Maze);
             }
             else if (State == GameStates.Lost)
             {

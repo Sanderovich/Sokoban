@@ -17,7 +17,7 @@ namespace Sokoban.Views
             Console.WriteLine("─────────────────────────────────────────────────────────────────────────");
             maze.PrintField();
             Console.WriteLine("─────────────────────────────────────────────────────────────────────────");
-            Console.WriteLine("=== YOU LOST! All the crates have fallen through the pitfalls ===");
+            Console.WriteLine("=== YOU LOST! Not enough crates to finish :( ===");
             Console.WriteLine("> Press any key to continue");
 
             return Console.ReadKey();
