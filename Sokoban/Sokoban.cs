@@ -78,10 +78,8 @@ namespace Sokoban
 
             while (State == GameStates.Playing)
             {
-                {
-                    CheckInput(this._gameView.Print(Maze));
-                    IsFinished();
-                }
+                CheckInput(this._gameView.Print(Maze));
+                IsFinished();
             }
 
             End();

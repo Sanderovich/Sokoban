@@ -87,6 +87,7 @@ namespace Sokoban
                             tile = new Destination();
 
                             crate = new Crate(tile);
+                            crate.OnDestination = true;
                             tile.Entity = crate;
 
                             maze.Crates.Add(crate);
